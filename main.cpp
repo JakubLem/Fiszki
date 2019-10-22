@@ -8,14 +8,18 @@
 using namespace std;
 int main()
 {
-	SetConsoleTitleA("Twoje Fiszki");
+	SetConsoleTitleA("Your FlashCards");
 	int c = count();
-	StartApp(c*2);
+	int* correcttab = new int[c];
+	fillzero(correcttab,c);
+	int* wrongtab = new int[c];
+	fillzero(wrongtab, c);
+	StartApp(c*2,correcttab,wrongtab);
 	return 0;
 }
 
 /*
-zliczanie elementów countem()
+zliczanie elementÃ³w countem()
 do tablicy
 interfejs: zamykanie:q 
 */
