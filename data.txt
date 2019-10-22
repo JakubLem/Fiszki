@@ -1,6 +1,6 @@
 a-river-bank  brzeg-rzeki
 a-housing-estate  osiedle
-a_danse_forest  gêsty_las 
-a_busy_harbour  zajêty_port
-a_steep_hill  strome_wzgórze 
-an_industrial_area obszar_przemys³owy 
+a-danse-forest  gesty-las 
+a-busy-harbour  zajety-port
+a-steep-hill  strome-wzgorze 
+an-industrial-area obszar-przemyslowy 
