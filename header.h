@@ -5,7 +5,8 @@
 #include<time.h>
 
 int count();
-void StartApp(int c);
+void fillzero(int *tab,int c);
+void StartApp(int c, int *ctab, int * wtab);
 
 
 
