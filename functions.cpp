@@ -81,13 +81,20 @@ void StartApp(int c, int * ctab, int * wtab)
 				badanswer++;
 				wtab[select / 2]++;
 				if (wtab[select / 2] == 4) {
-					cout << endl << "Ughh, you hadn't translated this word fourth time! Write this 3 times correct!" << endl;
+					cout << endl << "Ughh, you hadn't translated this word fourth time! Write this 3 times correct!" << endl<<endl;
 					for (int i = 1; i < 4; i++) {
-						do
+						do {
 							cin >> word;
-						while (word!=text[select]);
+							if (word == text[select]) {
+								cout << endl << "Correct!";
+							}
+							else {
+								cout << endl << "Wrong!!!"<<endl;
+							}
+						} while (word!=text[select]);
 						cout << endl;
 					}
+					cout << "I hope, that you will remember that!"<<endl;
 					wtab[select / 2] = 0;
 				}
 			}
