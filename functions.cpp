@@ -7,8 +7,7 @@
 #include<time.h>
 #include<iostream>
 using namespace std;
-int count()
-{
+int count() {
 	fstream file;
 	int counter = 0;
 	file.open("data.txt", ios::in);
@@ -40,13 +39,36 @@ int checkall(int* tab, int c) {
 	}
 	return 1;
 }
+void nulltab(string* tab) {
+	for (int i = 0; i < 10; i++) {
+		tab[i] = "null";
+	}
+}
+void showcorrect(string * correct) {
+	cout << endl << "You already know these words!" << endl;
+	for (int i = 0; i < 10; i+=2) {
+		if (correct[i] != "null") {
+			cout << correct[i] << " - " << correct[i + 1] << endl;
+		}
+	}
+}
+void sortcorrettab(string a, string b, string* tab) {
+	//index 10-8 / 9-7
+	for (int i = 9; i > 1; i--) {
+		tab[i] = tab[i - 1];
+	}
+	tab[0] = a;
+	tab[1] = b;
+}
 void StartApp(int c, int * ctab, int * wtab)
 {
 
 	fstream file;
 	int select,goodanswer=0,badanswer=0;
-	string word;
+	string word,a,b;
 	string* text = new string[c];
+	string* correcttabstart = new string[10];
+	nulltab(correcttabstart);
 	file.open("data.txt", ios::in);
 	if (file.good() == true) {
 		for (int i = 0; i < c; i++) {
@@ -57,6 +79,7 @@ void StartApp(int c, int * ctab, int * wtab)
 		while (true) {
 			system("cls");
 			cout << "Correct: " << goodanswer << " Wrong: " << badanswer<<endl;
+			showcorrect(correcttabstart);
 			//select the index of first word
 			if (checkall(ctab,c) == 1) {
 				cout << "You are the best!!!";
@@ -64,7 +87,7 @@ void StartApp(int c, int * ctab, int * wtab)
 			}
 			do
 				select = (rand() % c / 2) * 2;
-			while (ctab[select]==4);
+			while (ctab[select/2]==4);
 
 			cout <<endl<< text[select + 1] << " - ";
 			cin >> word;
@@ -74,6 +97,9 @@ void StartApp(int c, int * ctab, int * wtab)
 				ctab[select / 2]++;
 				if (ctab[select / 2] == 4) {
 					cout << endl << "COOL, you answer correct 4 times!!!";
+					a = text[select];
+					b = text[select + 1];
+					sortcorrettab(a, b, correcttabstart);
 				}
 			}
 			else {
@@ -106,5 +132,9 @@ void StartApp(int c, int * ctab, int * wtab)
 		cout << "blad";
 	}
 	over:
+	system("cls");
+	cout << endl << "Congratulations!!! You finished learning!!!" << endl;
+	showcorrect(correcttabstart);
+
 	file.close();
 }
