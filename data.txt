@@ -1,6 +1,3 @@
-a-river-bank  brzeg-rzeki
-a-housing-estate  osiedle
-a-danse-forest  gesty-las 
-a-busy-harbour  zajety-port
-a-steep-hill  strome-wzgorze 
-an-industrial-area obszar-przemyslowy 
+exemple-ang exemplepl
+exemple-ang exemplepl
+exemple-ang exemplepl
