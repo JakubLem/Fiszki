@@ -55,7 +55,7 @@ void showcorrect(string * correct) {
 void sortcorrettab(string a, string b, string* tab) {
 	//index 10-8 / 9-7
 	for (int i = 9; i > 1; i--) {
-		tab[i] = tab[i - 1];
+		tab[i] = tab[i - 2];
 	}
 	tab[0] = a;
 	tab[1] = b;
